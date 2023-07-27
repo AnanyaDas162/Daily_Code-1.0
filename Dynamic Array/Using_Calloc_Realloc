@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define n 5
+
+int main()
+{
+    float *fp;
+    //fp  = (float *)calloc(n, sizeof(float));
+    fp = (float *)realloc(NULL, 0);
+   /* if (fp != NULL){
+        printf("%p\n",fp);
+        for (int i = 0; i < 6;i ++){
+            fp[i] = i;
+        }
+        for (int i = 0; i < 6; i ++){
+            printf("%f\t", fp[i]);
+        }
+    }*/
+   /* free (fp);
+    printf("\n%p\n",fp);
+     for (int i = 0; i < n; i ++){
+            printf("%f\t", fp[i]);
+        }*/
+}
