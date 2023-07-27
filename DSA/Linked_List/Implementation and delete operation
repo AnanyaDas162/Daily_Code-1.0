@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Point{
+    int x;
+    int y;
+    int z;
+    struct Point *p;
+};// Self-referencing structure
+
+typedef struct Node{
+    int data;
+    struct Node* next;
+}Node;//Linked List --> Self-referencing structure
+ struct Node *head = NULL;
+  struct Node *tail = NULL;
+void del_beg(){
+    if (head == NULL){
+        printf("Linked List is already empty!!");
+        return;
+    }
+    Node *temp = head;
+    head = head -> next;
+    free(temp);
+    temp = NULL;
+    print();
+}
+
+void del_end (){
+    if (head == NULL){
+        printf("Linked List is already empty!!");
+        return;
+    }
+    Node *temp = head;
+    Node *ptr = NULL;
+    while (temp -> next != NULL){
+        ptr = temp;
+        temp = temp -> next;
+    }
+    ptr -> next = NULL;
+    tail = ptr;
+    free(temp);
+    temp = NULL;
+    printf ("\n");
+    print();
+}
+
+void print (){
+    struct Node *temp = head;
+    while (temp != NULL){
+        printf ("%d\t", temp -> data);
+        temp = temp -> next;
+    }
+}
+
+int main()
+{
+   
+    int n, x;
+    printf("Enter the number of nodes :: \n");
+    scanf("%d", &n);
+   
+    for (int i = 0; i < n; i ++){
+        struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+        newnode->next = NULL;
+        printf("\n Enter the data :: \n");
+        scanf ("%d", &x);
+        newnode -> data = x;
+        if (head == NULL){
+            head = newnode;
+            tail = newnode;
+        }
+        else{
+            tail -> next = newnode;
+            tail = newnode;
+        }
+    }
+    
+    print();
+    printf("\n");
+    del_beg();
+    del_end ();
+    return 0;
+}
