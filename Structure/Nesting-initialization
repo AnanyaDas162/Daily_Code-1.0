@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+struct notes{
+    int pages;
+    char sub[40];
+};//Child Structure
+
+typedef struct student{
+    int roll ;//Here the initialization of structure members are not allowed
+    int class;
+    float marks;
+    struct crushes{
+        char first[20];
+        char second[20];
+        char third[20];
+    }crush;//Embedded Structure Nesting -->Declaration of child structure is inside of the parent structure.
+    struct notes note;//Separate Structure Nesting --> Declaration of child structure is outside of the parent structure.
+}st;//Parent Structure
+
+int main(){
+    struct student s;
+    typedef long long int lli;//The typedef keyword is used to define an alias for the already existing datatype.
+    lli x=9;
+    st s4;//st is  the short name for struct student.
+    s.roll = 3;//Using Assignment Operator.
+    // Using Initializer List.
+    struct student s1 = {2,12,97.89};
+    //Using Designated Initializer List.
+    struct student s2 = {.marks =87.67, .roll = 4};
+    //1> We dont needto maintain the order
+    struct student abhra;
+    abhra.note.pages = 50;//Accessing the variables of nested structure.
+    struct student* ptr = &abhra;
+    printf("%d",ptr->note.pages);
+}
