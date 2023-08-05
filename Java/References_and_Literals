@@ -1,0 +1,70 @@
+interface me{
+   public void method();
+}
+class Test implements me{
+    public void method(){
+        
+    }
+    static{
+    System.out.println("HIIII");
+}
+
+}
+
+//Abstraction
+//method public
+//variable public, static,final.
+//Extends...Implements
+//multiple inheritance
+//method override
+
+public class Main
+{
+    static{
+    System.out.println("HIIII");
+}
+{
+    System.out.println("Hellooooooooooooo");
+}
+	public static void main(String[] args) {
+		//System.out.println("Hello World");
+		int a=3;
+	//	String s = null;//s -> String type
+		int arr[] = new int[5];//arr -> array type
+		Main m = new Main();//m-> reference type--class type
+		me x = new Test();// x -> reference type -> interface type
+		
+		// == operator -> reference comparison
+		String s = "Abhra";//String constant pool
+		String s1 = new String ("Abhra");//Heap area
+		System.out.println(s == s1);
+		
+		//Equals metghod --> content comparison
+		System.out.println(s1.equals(s));
+		
+		//Literals
+		//integral literal
+		int a1 = 7; // Decimal Literals
+		int a2 = 012; //Octal leteral must start with 0
+		long a3 = 0X45al;
+		int a4 = 0x34c;//Hexa decimal literal must start with 0X or 0x
+		System.out.println(a4);
+		int a5 = 0b110;
+		int a6 = 0B000;//Binary Literals must start with 0B or 0b.
+	    System.out.println(a5);
+	    //Floating point literal
+	    double a7 = 123.456d;
+	    float a8 = 12.34f;
+	    float a9 = 012.87f;
+	    System.out.println(a9);
+	    //Char Literals
+	    char c1 = 'a';
+	    char c2 = 071;
+	    char c3 = 0x96;
+	    char c4 = '\u56af';
+	    System.out.println(c4);
+	    double x1 = 65/13*3;//bodmas
+	  //  int x2 = 3,4,5,6;
+	    System.out.println(x1);
+	}
+}
