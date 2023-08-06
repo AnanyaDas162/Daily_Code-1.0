@@ -1,0 +1,49 @@
+class TooYoungException extends Throwable{//User defined checked exception
+    TooYoungException(String s){
+        super(s);//By using parameterized constructor
+    }
+}
+class PenNotWorkingException extends Exception{//User defined checked exception
+    //By using default constructor i.e whenever this exception object will be ceated by using new operator,
+    //the compiler will call default constructor automatically.
+}
+class TooOldException extends RuntimeException{//User defined unchecked exception
+    TooOldException(String s){
+        super(s);//By using parameterized constructor
+    }
+}
+class WrongSolutionException extends ArithmeticException{//User defined Unchecked exception
+    //By using default constructor i.e whenever this exception object will be ceated by using new operator,
+    //the compiler will call default constructor automatically.
+} 
+public class Main{
+    public static void main (String [] args){
+        try{
+            throw new TooYoungException("You are too young");
+        }
+        catch(Throwable e){
+             System.out.println(e.getMessage());
+            try{
+                throw new TooOldException("You are too old");
+            }
+            catch(RuntimeException re){
+                System.out.println("All exceptions handled");
+                 System.out.println(re.getMessage());
+            }
+        }
+        
+        try{
+            throw new PenNotWorkingException();
+        }
+        catch(PenNotWorkingException pe){
+            System.out.println(pe.getMessage());
+        }
+        
+        try{
+            throw new WrongSolutionException();
+        }
+        catch(WrongSolutionException we){
+            System.out.println(we.getMessage());
+        }
+    }
+}
