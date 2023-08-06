@@ -1,0 +1,33 @@
+interface shop{
+    
+}
+class sellsman implements shop{
+    
+}
+class Test{
+    public static int m1(){
+        try{
+		    System.out.println("Hii");
+		    System.exit(0);
+		    return 10;
+		}
+		catch(ArithmeticException ae){
+		    System.out.println("Exception occurred");
+		    return 30;
+		}
+		finally{
+		    System.out.println("Finally");
+		    return 40;
+		}
+		//return 20;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		//System.out.println("Hello World");
+		int t = Test.m1();
+		System.out.println(t);
+		shop s = new sellsman();
+	}
+}
