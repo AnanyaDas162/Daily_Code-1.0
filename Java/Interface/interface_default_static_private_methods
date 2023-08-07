@@ -1,0 +1,51 @@
+interface Business{
+    
+    private static void producing(double x){//From java 9, private concrete methods are allowed inside Interface
+        System.out.println("producing");//private static methods are also allowed, it reduces code redundancy
+    }
+    
+    default void marketting(){ //Interface can have default concrete methods from java 1.8
+        System.out.println("marketting");//inside interface default abstract methods are not allowed.
+    }
+    
+    default void marketting(int investment){//This default concrete methods can be overloaded.
+        System.out.println("Good marketting");
+        producing(2);
+    }
+    
+    //default abstract void investing();//Not possible
+    static double taxing (double x, double y){//From java 1.8,interface can have static concrete method
+         return x*y;
+    }
+    
+    //But static ,abstract method not possible.
+    
+}
+class Facebook implements Business{
+    
+    public void marketting(){//The default concrete methods can be overriden by its implementing class.
+        
+    }
+    
+   static double taxing(double x, double y){//Interface static methods are not available to its implementing classes.
+        return x+y;//Treated as separate child class method
+    }//Overriding concept is not applicable.
+    
+    void computing(){
+       
+    }
+    
+}
+public class Main implements Business
+{
+    
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		Business b = new Facebook();
+       // b.taxing(2,3);
+       // taxing(3,4);
+       Business.taxing(3,4);//Interface static methods can only be accessed by the interface name.
+       System.out.println(Facebook.taxing(4,5));
+	}
+	
+}
