@@ -1,0 +1,31 @@
+class MyThread extends Thread{
+    public void run(){
+        for (int i = 0; i < 10; i ++){
+            System.out.println("Child Thread");
+        }
+    }
+    public void run (int x){//But the start() method calls the no-arg run() method internally.
+        System.out.println("Run method is overloaded");
+    }
+    //If we overrride the start() method, then it will act like a normal method. No thread will be started 
+    //And no invocation to the run() method. So don't override the start();
+    //After overriding, if we wanna start the thread, then we have to invoke the super.start();
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		//System.out.println("Hello World");
+		MyThread t = new MyThread();
+		t.start();
+		t.run(2);
+		for (int i = 0; i < 10; i ++){
+		    System.out.println("Main Thread");
+		}
+		//t.start();// Applying start() method more than once on a same thread causes the IllegalThreadStateException.
+		System.out.println(t.getName());//JVM will set a name Thread-0
+		t.setName("Dhoni Thread");
+		System.out.println(t.getName());//Programmer defined thread name
+		System.out.println(Thread.currentThread().getName());
+	}
+}
